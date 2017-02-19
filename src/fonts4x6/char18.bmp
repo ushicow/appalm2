@@ -1,0 +1,3 @@
+#define char18_width 4
+#define char18_height 6
+static char char18_bits[] = {0x0a, 0x0e, 0x04, 0x0e, 0x0a, 0x00};

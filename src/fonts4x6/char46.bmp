@@ -1,0 +1,3 @@
+#define char46_width 4
+#define char46_height 6
+static char char46_bits[] = {0x04, 0x06, 0x0c, 0x04, 0x04, 0x00};

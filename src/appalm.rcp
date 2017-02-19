@@ -1,0 +1,112 @@
+#include "appalm_rsc.h"
+
+VERSION ID 1000 "0.7.5"
+
+//
+// Appalm resources.
+//
+
+MENU ID 3000
+BEGIN
+    PULLDOWN "File"
+    BEGIN
+        MENUITEM "Load Disk 1 Image"     ID menuLoadDisk1 "1"
+        MENUITEM "Load Disk 2 Image"     ID menuLoadDisk2 "2"
+        MENUITEM "Appalm ][ Manager..."  ID menuA2Manager
+    END
+    PULLDOWN "Input"
+    BEGIN
+	MENUITEM "ESC"			 ID menuESC "E"
+	MENUITEM "CTRL"			 ID menuCTRL "C"
+	MENUITEM "CAPS LOCK"		 ID menuCapsLock "L"
+	MENUITEM "CAPS UNLOCK"		 ID menuCapsUnlock "L"
+	MENUITEM "Flush Keyboard Buffer" ID menuFlushKbdBuf "F"
+    	MENUITEM "Disable Joystick" 	 ID menuDisableJoystick "J"
+    	MENUITEM "Enable  Joystick" 	 ID menuEnableJoystick "J"
+	MENUITEM "Joystick Settings"	 ID menuJoystickSettings
+    END
+    PULLDOWN "Output"
+    BEGIN
+    	MENUITEM "Increase Refresh Rate" ID menuIncRefresh "+"
+    	MENUITEM "Decrease Refresh Rate" ID menuDecRefresh "-"
+    	MENUITEM "Disable 80 Column Text" ID menuDisable80Col
+    	MENUITEM "Enable  80 Column Text" ID menuEnable80Col
+    	MENUITEM "Mute   Sound"          ID menuMuteSound "S"
+    	MENUITEM "Unmute Sound"          ID menuUnmuteSound "S"
+    END
+    PULLDOWN "Options"
+    BEGIN
+	MENUITEM "Pause"		 ID menuPause
+	MENUITEM "Unpause"		 ID menuUnpause
+    	MENUITEM "Reset"		 ID menuReset "R"
+	MENUITEM "Ignore Bad Ops"	 ID menuIgnoreBadOps
+	MENUITEM "About"                 ID menuAbout
+    END
+END
+
+FORM ID LoadDiskForm AT (15 15 130 140)
+MODAL
+BEGIN
+    TITLE "Load Disk"
+    LIST		    "" ID lstDsk    AT (10 22 110 68)
+    CHECKBOX "Write Enable Disk" ID checkWriteEnable AT (10 93 AUTO AUTO) FONT 1
+    CHECKBOX "Reset After Load" ID checkReset AT (10 105 AUTO AUTO) FONT 1
+    BUTTON "OK"             ID buttonOk     AT (10 120  AUTO AUTO)
+    BUTTON "Cancel"         ID buttonCancel AT (PREVRIGHT+10 PREVTOP AUTO AUTO)
+END
+
+FORM ID JoystickSettingsForm AT (20 20 120 120)
+MODAL
+BEGIN
+    TITLE "Joystick Settings"
+    CHECKBOX "Auto Center"  ID checkAutoCenter  AT (15 15 AUTO AUTO) FONT 1
+    CHECKBOX "Swap Buttons" ID checkSwapBttns   AT (15 30 AUTO AUTO) FONT 1
+    REPEATBUTTON "\001"     ID buttonIncRate    AT (5 45 13 8) NOFRAME FONT 5
+    REPEATBUTTON "\002"     ID buttonDecRate    AT (PREVLEFT PREVBOTTOM 13 8) NOFRAME FONT 5
+    FIELD                   ID fieldMoveRate    AT (PREVLEFT+15 PREVBOTTOM-14 20 11) LEFTALIGN EDITABLE UNDERLINED SINGLELINE MAXCHARS 5 NUMERIC
+    LABEL "Move Rate"       AUTOID              AT (PREVLEFT+20 PREVTOP) FONT 1
+    REPEATBUTTON "\001"     ID buttonIncYCenter AT (5 PREVBOTTOM + 5 13 8) NOFRAME FONT 5
+    REPEATBUTTON "\002"     ID buttonDecYCenter AT (PREVLEFT PREVBOTTOM 13 8) NOFRAME FONT 5
+    FIELD                   ID fieldYCenter     AT (PREVLEFT+15 PREVBOTTOM-14 20 11) LEFTALIGN EDITABLE UNDERLINED SINGLELINE MAXCHARS 5 NUMERIC
+    LABEL "Y Axis Center"   AUTOID              AT (PREVLEFT+20 PREVTOP) FONT 1
+    REPEATBUTTON "\001"     ID buttonIncXCenter AT (5 PREVBOTTOM + 5 13 8) NOFRAME FONT 5
+    REPEATBUTTON "\002"     ID buttonDecXCenter AT (PREVLEFT PREVBOTTOM 13 8) NOFRAME FONT 5
+    FIELD                   ID fieldXCenter     AT (PREVLEFT+15 PREVBOTTOM-14 20 11) LEFTALIGN EDITABLE UNDERLINED SINGLELINE MAXCHARS 5 NUMERIC
+    LABEL "X Axis Center"   AUTOID              AT (PREVLEFT+20 PREVTOP) FONT 1
+    BUTTON "OK"             ID buttonOk         AT (10 105  AUTO AUTO)
+    BUTTON "Cancel"         ID buttonCancel     AT (PREVRIGHT+10 PREVTOP AUTO AUTO)
+END
+
+FORM ID Apple2Form AT (0 0 160 160)
+MENUID 3000
+BEGIN
+	TITLE "Appalm ]["
+END
+
+ALERT ID RomIncompatibleAlert
+ERROR
+BEGIN
+    TITLE "System Incompatible"
+    MESSAGE "System Version 3.5 or greater is required to run this application."
+    BUTTONS "OK"
+END
+
+ALERT ID MessageBox
+INFORMATION
+BEGIN
+    TITLE "Message"
+    MESSAGE "^1"
+    BUTTONS "OK"
+END
+
+ALERT ID AboutBox
+INFORMATION
+BEGIN
+    TITLE "About"
+    MESSAGE "Appalm ][ v 0.7.5\npalmapple.sf.net"
+    BUTTONS "OK"
+END
+
+ICONFAMILY 1000 "icons/ApPalm_32x22_B&W.bmp" "icons/ApPalm_32x22_B&W.bmp" "icons/ApPalm_32x22_4grey.bmp" "icons/ApPalm_32x22_256.bmp" TRANSPARENT 255 0 255
+
+SMALLICONFAMILY 1001 "icons/ApPalm_15x9_B&W.bmp" "icons/ApPalm_15x9_B&W.bmp" "icons/ApPalm_15x9_4grey.bmp" "icons/ApPalm_15x9_256.bmp" TRANSPARENT 255 0 255

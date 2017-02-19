@@ -1,0 +1,3 @@
+#define char5c_width 4
+#define char5c_height 6
+static char char5c_bits[] = {0x04, 0x04, 0x04, 0x04, 0x04, 0x04};

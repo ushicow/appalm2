@@ -1,0 +1,3 @@
+#define char2c_width 4
+#define char2c_height 6
+static char char2c_bits[] = {0x00, 0x00, 0x00, 0x04, 0x04, 0x00};

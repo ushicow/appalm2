@@ -1,0 +1,38 @@
+#include "a2mgr_rsc.h"
+
+VERSION ID 1000 "1.0"
+
+//
+// DskMgr resources.
+//
+
+FORM ID DskMgrForm AT (0 0 160 160)
+BEGIN
+    TITLE "Dsk Image Manager"
+    LIST		    "" ID lstDsk    AT (10 22 110 68)
+    CHECKBOX "Reset After Load" ID checkReset AT (10 95 AUTO AUTO) FONT 1
+    BUTTON "EXIT"             ID buttonExit     AT (10 110  AUTO AUTO)
+END
+
+ALERT ID MessageBox
+INFORMATION
+BEGIN
+    TITLE "Message"
+    MESSAGE "^1"
+    BUTTONS "OK"
+END
+
+ALERT ID AboutBox
+INFORMATION
+BEGIN
+    TITLE "About"
+    MESSAGE "Appalm ][ Manager\npalmapple.sourceforge.net"
+    BUTTONS "OK"
+END
+
+ICONFAMILY 1000 "icons/ApPalm_32x22_B&W.bmp" "icons/ApPalm_32x22_B&W.bmp" "icons/ApPalm_32x22_4grey.bmp" "icons/ApPalm_32x22_256.bmp" TRANSPARENT 255 0 255
+
+SMALLICONFAMILY 1001 "icons/ApPalm_15x9_B&W.bmp" "icons/ApPalm_15x9_B&W.bmp" "icons/ApPalm_15x9_4grey.bmp" "icons/ApPalm_15x9_256.bmp" TRANSPARENT 255 0 255
+
+
+

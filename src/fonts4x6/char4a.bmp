@@ -1,0 +1,3 @@
+#define char4a_width 4
+#define char4a_height 6
+static char char4a_bits[] = {0x04, 0x04, 0x04, 0x04, 0x0c, 0x04};

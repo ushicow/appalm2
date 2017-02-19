@@ -1,0 +1,3 @@
+#define char49_width 4
+#define char49_height 6
+static char char49_bits[] = {0x04, 0x00, 0x04, 0x04, 0x04, 0x00};

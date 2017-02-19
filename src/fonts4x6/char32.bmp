@@ -1,0 +1,3 @@
+#define char32_width 4
+#define char32_height 6
+static char char32_bits[] = {0x04, 0x0a, 0x04, 0x0c, 0x0e, 0x00};

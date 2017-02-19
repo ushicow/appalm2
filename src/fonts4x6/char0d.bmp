@@ -1,0 +1,3 @@
+#define char0d_width 4
+#define char0d_height 6
+static char char0d_bits[] = {0x0a, 0x0e, 0x0e, 0x0a, 0x0a, 0x00};

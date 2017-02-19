@@ -1,0 +1,3 @@
+#define char16_width 4
+#define char16_height 6
+static char char16_bits[] = {0x0a, 0x0a, 0x0a, 0x0e, 0x04, 0x00};

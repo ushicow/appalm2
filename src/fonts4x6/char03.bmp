@@ -1,0 +1,3 @@
+#define char03_width 4
+#define char03_height 6
+static char char03_bits[] = {0x04, 0x0a, 0x08, 0x0a, 0x04, 0x00};
