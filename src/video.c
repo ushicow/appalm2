@@ -61,7 +61,8 @@ void initVideo(void)
         vidScreenCache = MemPtrNew(0x2000);
     if (grMode > GRMODE_COLOR)
     {
-        vidImage += (GRMODE_ISCOLOR(grMode) ? 320 : 40) * 30;
+//        vidImage += (GRMODE_ISCOLOR(grMode) ? 320 : 40) * 30;
+			vidImage += 480 * 30;
         if (!AppleFont)
             AppleFont = MemPtrNew(0x100 * 0x08);
         MemMove(AppleFont,                                 AppleFontBitmap7x8,               0x40 * 0x08);
@@ -1059,7 +1060,8 @@ void hrclrUpdateText(void)
     for (vert = 0; vert < 192; vert += 8)
     {
         hrclrUpdateTextRow(&AppleMemory[ScanlineOffsetTable[vert] + vidPageOffset], _pointer, &vidScreenCache[VID_CACHE_OFFSET(vert)]);
-        _pointer += 320 * 9;
+//        _pointer += 320 * 9;
+		_pointer += 480 * 9;
     }
 }
 void hrclrUpdateDblTextRow(UInt8 *, UInt8 *, UInt8 *);

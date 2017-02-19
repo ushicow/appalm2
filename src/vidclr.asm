@@ -664,7 +664,9 @@ hrcharloop:
 	add.w	DATA, FONT 
 	move.w	#7, VCOUNT
 hrcharscanloop:
-	add.w	#(320-6), DST
+/*	add.w	#(320-6), DST
+*/
+	add.w	#(480-6), DST
 	move.b	(FONT)+, BITMASK
 	add.b	BITMASK, BITMASK
 	scs.b	DATA
@@ -691,7 +693,9 @@ hrcharscanloop:
 	scs.b	DATA
 	move.w	DATA, (DST)
 	dbf.w	VCOUNT, hrcharscanloop
-	sub.w	#(320*8-2), DST
+/*	sub.w	#(320*8-2), DST
+*/
+	sub.w	#(480*8-2), DST
 	dbf.w	HCOUNT, hrcharloop
 	movm.l	(%sp)+, #0x5CF8
 	rts
