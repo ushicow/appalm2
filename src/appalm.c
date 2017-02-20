@@ -1,7 +1,7 @@
 #include <PalmOS.h>
 #include <SonyCLIE.h>
-#define keyBitGameExt0      0x00010000L // SONY GameController Extension bit0
-#define keyBitGameExt1      0x00020000L // SONY GameController Extension bit1
+//#define keyBitGameExt0      0x00010000L // SONY GameController Extension bit0
+//#define keyBitGameExt1      0x00020000L // SONY GameController Extension bit1
 #define KEY_MASK_ALL        (~(keyBitPageUp | keyBitPageDown | keyBitHard1 | keyBitHard2 | keyBitHard3 | keyBitHard4 | keyBitGameExt0 | keyBitGameExt1))
 #define KEY_MASK_BTTNS      (~(keyBitHard1 | keyBitHard4 | keyBitGameExt0 | keyBitGameExt1))
 #include "Apple2.h"

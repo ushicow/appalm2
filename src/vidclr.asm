@@ -410,7 +410,8 @@ hrcachedirtydbl:
 	move.l	(28+4)(%sp), SRC
 	move.l	(28+8)(%sp), DST
 	move.l	DST, DSTDBL
-	add.l	#320, DSTDBL
+//	add.l	#320, DSTDBL
+	add.l	#480, DSTDBL
 	clr.w	DATA
 	clr.w	MSBOFFSET
 	lea	pixPairEven@END.w(%a5), PIXPAIREVENTABLE
@@ -733,7 +734,8 @@ dblcharloop:
 	add.w	DATA, FONT 
 	move.w	#7, VCOUNT
 dblcharscanloop:
-	add.w	#(320-8), DST
+//	add.w	#(320-8), DST
+	add.w	#(480-8), DST
 	move.b	(FONT)+, BITMASK
 	not.b	BITMASK
 	move.b	BITMASK, DATA
@@ -750,7 +752,8 @@ dblcharscanloop:
 	seq.b	(DST)
 	addq.l	#5, DST
 	dbf.w	VCOUNT, dblcharscanloop
-	sub.w	#(320*8), DST
+//	sub.w	#(320*8), DST
+	sub.w	#(480*8), DST
 	dbf.w	HCOUNT, dblcharloop
 	movm.l	(%sp)+, #0x5CF8
 	rts
@@ -789,7 +792,8 @@ blockloop:
 blockscantoploop:
 	move.l	DATA, (DST)+
 	move.l	DATA, (DST)+
-	add.w	#(320-8), DST
+//	add.w	#(320-8), DST
+	add.w	#(480-8), DST
 	dbf.w	VCOUNT, blockscantoploop
 	clr.w	DATA
 	move.b	(SRC)+, DATA
@@ -805,9 +809,11 @@ blockscantoploop:
 blockscanbottomloop:
 	move.l	DATA, (DST)+
 	move.l	DATA, (DST)+
-	add.w	#(320-8), DST
+//	add.w	#(320-8), DST
+	add.w	#(480-8), DST
 	dbf.w	VCOUNT, blockscanbottomloop
-	sub.w	#(320*9-8), DST
+//	sub.w	#(320*9-8), DST
+	sub.w	#(480*9-8), DST
 	dbf.w	HCOUNT, blockloop
 	movm.l	(%sp)+, #0x5CF8
 	rts

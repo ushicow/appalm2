@@ -1074,7 +1074,8 @@ void hrclrUpdateDblText(void)
     {
         hrclrUpdateDblTextRow(&AuxMemory[ScanlineOffsetTable[vert] + 16384], _pointer, &vidScreenCache[VID_CACHE_OFFSET(vert + 1)]);
         hrclrUpdateDblTextRow(&AppleMemory[ScanlineOffsetTable[vert] + vidPageOffset], _pointer + 4, &vidScreenCache[VID_CACHE_OFFSET(vert)]);
-        _pointer += 320 * 9;
+//        _pointer += 320 * 9;
+		_pointer += 480 * 9;
     }
 }
 void hrclrUpdateLoresRow(UInt8 *, UInt8 *, UInt8 *);
@@ -1086,12 +1087,14 @@ void hrclrUpdateLoresMixed(void)
     for (vert = 0; vert < 160; vert += 8)
     {
         hrclrUpdateLoresRow(&AppleMemory[ScanlineOffsetTable[vert] + vidPageOffset], _pointer, &vidScreenCache[VID_CACHE_OFFSET(vert)]);
-        _pointer += 320 * 9;
+//        _pointer += 320 * 9;
+		_pointer += 480 * 9;
     }
     while (vert < 192)
     {
         hrclrUpdateTextRow(&AppleMemory[ScanlineOffsetTable[vert] + vidPageOffset], _pointer, &vidScreenCache[VID_CACHE_OFFSET(vert)]);
-        _pointer += 320 * 9;
+//        _pointer += 320 * 9;
+		_pointer += 480 * 9;
         vert += 8;
     }
 }
@@ -1103,7 +1106,8 @@ void hrclrUpdateLores(void)
     for (vert = 0; vert < 192; vert += 8)
     {
         hrclrUpdateLoresRow(&AppleMemory[ScanlineOffsetTable[vert] + vidPageOffset], _pointer, &vidScreenCache[VID_CACHE_OFFSET(vert)]);
-        _pointer += 320 * 9;
+//        _pointer += 320 * 9;
+		_pointer += 480 * 9;
     }
 }
 void hrclrUpdateHiresScanline(UInt8 *, UInt8 *, UInt8 *);
@@ -1118,19 +1122,22 @@ void hrclrUpdateHiresMixed(void)
         if ((vert & 7) == 0)
         {
             hrclrUpdateHiresDblScanline(&AppleMemory[ScanlineOffsetTable[vert] + vidPageOffset], _pointer, &vidScreenCache[VID_CACHE_OFFSET(vert)]);
-            _pointer += 640;
+//            _pointer += 640;
+			_pointer += 960;
         }
         else
         {
             hrclrUpdateHiresScanline(&AppleMemory[ScanlineOffsetTable[vert] + vidPageOffset], _pointer, &vidScreenCache[VID_CACHE_OFFSET(vert)]);
-            _pointer += 320;
+//            _pointer += 320;
+			_pointer += 480;
         }
     }
     textpage = SS_ISSET(vidIOU, SS_PAGE2) ? 0x0800 : 0x0400;
     while (vert < 192)
     {
         hrclrUpdateTextRow(&AppleMemory[ScanlineOffsetTable[vert] + textpage], _pointer, &vidScreenCache[VID_CACHE_OFFSET(vert)]);
-        _pointer += 320 * 9;
+//        _pointer += 320 * 9;
+		_pointer += 480 * 9;
         vert += 8;
     }
 }
@@ -1144,12 +1151,14 @@ void hrclrUpdateHires(void)
         if ((vert & 7) == 0)
         {
             hrclrUpdateHiresDblScanline(&AppleMemory[ScanlineOffsetTable[vert] + vidPageOffset], _pointer, &vidScreenCache[VID_CACHE_OFFSET(vert)]);
-            _pointer += 640;
+//            _pointer += 640;
+			_pointer += 960;
         }
         else
         {
             hrclrUpdateHiresScanline(&AppleMemory[ScanlineOffsetTable[vert] + vidPageOffset], _pointer, &vidScreenCache[VID_CACHE_OFFSET(vert)]);
-            _pointer += 320;
+//            _pointer += 320;
+			_pointer += 480;
         }
     }
 }
